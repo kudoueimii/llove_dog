@@ -1,6 +1,7 @@
 $(document).ready(function () {
   function score_indicate(){
-    let subject_points = [Number($('#taste').val()),
+    let subject_points = [
+    Number($('#taste').val()),
     Number($('#hospitality').val()),
     Number($('#atmosphere').val()),
     Number($('#cleanness').val()),
@@ -11,12 +12,15 @@ $(document).ready(function () {
   sum = sum + subject_points[2];
   sum = sum + subject_points[3];
   sum = sum + subject_points[4];
+
   $("#sum_indicate").text(sum);
   let average = sum / subject_points.length
     $("#average_indicate").text(average);
   };
+
   function get_achievement() {
-    console.log(averageIndicate)
+    let averageIndicate = $("#average_indicate").text();
+    console.log (averageIndicate)
     if (averageIndicate >= 90){
       return "星5★★★★★";
     }else if (averageIndicate >= 80) {
@@ -29,6 +33,7 @@ $(document).ready(function () {
       return "星1★"
     }
   }
+
   $('#taste, #hospitality, #atmosphere, #cleanness, #access').change(function () {
     score_indicate();
   });
