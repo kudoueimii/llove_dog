@@ -1,10 +1,10 @@
 $(document).ready(function () {
   function score_indicate(){
-    let subject_points = [Number($('#national_language').val()),
-    Number($('#english').val()),
-    Number($('#mathematics').val()),
-    Number($('#science').val()),
-    Number($('#society').val())
+    let subject_points = [Number($('#taste').val()),
+    Number($('#hospitality').val()),
+    Number($('#atmosphere').val()),
+    Number($('#cleanness').val()),
+    Number($('#access').val())
   ];
   let sum = subject_points[0];
   sum = sum + subject_points[1];
@@ -28,4 +28,14 @@ $(document).ready(function () {
     } else {
       return "星1★"
     }
-})；
+  }
+  $('#taste, #hospitality, #atmosphere, #cleanness, #access').change(function () {
+    score_indicate();
+  });
+  $('#btn-evaluation').click(function () {
+    $("#evaluation").text(get_achievement());
+  });
+
+
+});
+
